@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	
+	<!-- <import resource="SpringConfig.xml"/> -->
+	
+	<context:component-scan base-package="com.bdqn.*,cn.itrip.*" />
+	<!-- 视频解析器
+		作用:把逻辑视图名解析为真正的物理路径
+		request:text1
+		真正的物理路径=/Manage+逻辑视图名(t1).jsp
+	 -->
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/Manage/" ></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+	<!--<mvc:resources location="/css/" mapping="/css/**"/>
+	<mvc:resources location="/js/" mapping="/js/**"/>
+	<mvc:resources location="/images/" mapping="/images/**"/>
+	<mvc:resources location="/" mapping="/*.html"/>-->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+   		 <property name="maxUploadSize" value="5000000"/>
+   		 <property name="defaultEncoding" value="UTF-8"/>
+	</bean>
+	<!--<mvc:resources mapping="statics/uploadfiles/**" location="/statics/uploadfiles/" />-->
+	
+	<!-- 登录时拦截器 -->
+	<!--<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/Appinfo/*"/>
+			<bean class="com.bdqn.filter.LoginFilter"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>-->
+	
+	<mvc:annotation-driven/>
+</beans>

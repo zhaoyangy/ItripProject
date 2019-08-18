@@ -1,0 +1,6 @@
+0:0:0:0:0:0:0:1 - - [16/Aug/2019:20:46:33 +0800] "GET / HTTP/1.1" 404 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [16/Aug/2019:20:50:24 +0800] "POST /auth/api/dologin?name=1044732267@qq.com&password=123456 HTTP/1.1" 200 194 http-bio-8080-exec-2 379
+127.0.0.1 - - [16/Aug/2019:20:57:49 +0800] "POST /auth/api/dologin HTTP/1.0" 200 183 http-bio-8080-exec-1 344
+127.0.0.1 - - [16/Aug/2019:20:57:53 +0800] "GET /auth/api/logout HTTP/1.0" 404 949 http-bio-8080-exec-2 13
+127.0.0.1 - - [16/Aug/2019:21:04:24 +0800] "POST /auth/api/registerbyphone HTTP/1.0" 200 71 http-bio-8080-exec-1 89
+127.0.0.1 - - [16/Aug/2019:21:22:49 +0800] "POST /auth/api/retoken HTTP/1.0" 404 949 http-bio-8080-exec-2 4
